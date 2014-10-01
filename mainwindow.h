@@ -37,6 +37,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void onDestroy();
 };
 
 #endif // MAINWINDOW_H

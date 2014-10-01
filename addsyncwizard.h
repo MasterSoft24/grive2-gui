@@ -63,6 +63,8 @@ public:
     explicit AddSyncWizard(QWidget *parent = 0, int tabNum=0);
     ~AddSyncWizard();
 
+    void moveWindowToCenter();
+
     void setTab(int tab, bool reAcrivate=false);
     void showMessage(QString msg,int retTab);
     void showMessage(QString msg); //close after ok pressed

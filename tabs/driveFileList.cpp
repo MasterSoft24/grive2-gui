@@ -25,6 +25,8 @@ void AddSyncWizard::driveFileListActivate(){
 
      if(this->tabTreeActivated) return;
 
+     this->tabSyncDataActivate();
+
     this->setTab(5);
 
     // QEventLoop loop; QTimer::singleShot(500, &loop, SLOT(quit())); loop.exec();
@@ -41,6 +43,7 @@ void AddSyncWizard::driveFileListActivate(){
 
 void AddSyncWizard::driveFileListReActivate(){
     this->tabTreeActivated=false;
+    driveFileListActivate();
 }
 
 
@@ -196,14 +199,14 @@ void AddSyncWizard::recursiveChecksSave(QTreeWidgetItem* item){
         if(item->childCount()>0){
 
 //            if(item->checkState(0)==Qt::Unchecked){
-//                qDebug()<< restoreFullPath(item);
+//                //qDebug()<< restoreFullPath(item);
 //                this->excludeFileContent+=restoreFullPath(item);
 //            }
 
             for(int i=0;i<item->childCount();i++){
 
                 if(item->checkState(0)==Qt::Unchecked){
-                    qDebug()<< restoreFullPath(item);
+                    //qDebug()<< restoreFullPath(item);
                     this->excludeFileContent+=restoreFullPath(item);
                 }
 
@@ -213,7 +216,7 @@ void AddSyncWizard::recursiveChecksSave(QTreeWidgetItem* item){
         }
         else{
             if(item->checkState(0)==Qt::Unchecked){
-                qDebug()<< restoreFullPath(item);
+               // qDebug()<< restoreFullPath(item);
                 this->excludeFileContent+=restoreFullPath(item);
             }
         }
@@ -246,6 +249,8 @@ void AddSyncWizard::saveTreeButton(){
     QFile f1(ui->syncPath->text()+"/.grive_state");//лучше удалить файл состояния чтобы не косячил при изменении .exclude
     f1.remove();
     f1.close();
+
+    showMessage("File list was successfuly saved");
 }
 
 

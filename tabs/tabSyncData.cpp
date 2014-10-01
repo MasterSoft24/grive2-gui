@@ -18,6 +18,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
+
 #include "addsyncwizard.h"
 
 
@@ -205,6 +206,11 @@ void AddSyncWizard::pageLoaded(bool r){
 
                                 break;
                case 1:// yes
+                    //setTab(4,true);
+                   QProcess prc;
+                   prc.start("./grive2-gui filelist");
+                   prc.waitForFinished(-1);
+                    showMessage("Google drive account was successfuly added and file list for sync created.");
 
                                 break;
 
@@ -295,6 +301,8 @@ void AddSyncWizard::removeSettButton(){
         f.remove();
         QFile f1(ui->syncPath->text()+"/.grive");
         f1.remove();
+        QFile f2(ui->syncPath->text()+"/.exclude");
+        f2.remove();
 
         ui->labelAccountName->setText("No account present");
         ui->syncPath->setText("");

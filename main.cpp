@@ -22,6 +22,8 @@
 #include <QApplication>
 #include "addsyncwizard.h"
 #include <QTextCodec>
+#include <QString>
+
 
 
 int main(int argc, char *argv[])
@@ -31,11 +33,34 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("utf8"));
 
     MainWindow w;
-    w.show();
+  //  w.show();
 
     AddSyncWizard* sw=new AddSyncWizard();
-    sw->setTab(1);
-    sw->show();
+
+
+    QString p=argv[1];
+
+
+    if(p==""){
+        qDebug()<< "Grive2 GUI v0.1 (need grive2 v0.1)";
+        qDebug()<< "Use <account> or <filelist> command" ;
+        qDebug()<< "USAGE: grive2-gui <command>";
+        return 0;
+    }
+
+    if(p=="account"){
+        sw->setTab(1);
+        sw->show();
+    }
+    else if(p=="filelist"){
+        sw->setTab(4);
+        sw->show();
+    }
+    else{
+        qDebug()<< p+" is unknown command";
+        return 0;
+    }
+
 
     return a.exec();
 }

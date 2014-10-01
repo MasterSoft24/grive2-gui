@@ -48,6 +48,7 @@
 #include <QJsonValue>
 #include <QTabBar>
 #include <QMovie>
+#include <QDesktopWidget>
 
 #include "tabs/driveFileList.cpp"
 #include "tabs/tabSyncData.cpp"
@@ -58,6 +59,9 @@ AddSyncWizard::AddSyncWizard(QWidget *parent,int tabNum) :
     ui(new Ui::AddSyncWizard)
 {
     ui->setupUi(this);
+
+    this->setWindowFlags( Qt::Window
+                          | Qt::WindowCloseButtonHint);
 
     connect(ui->folderSelButton,SIGNAL(clicked()),this,SLOT(selDir()));
     connect(ui->authButton,SIGNAL(clicked()),this,SLOT(startAuth()));
@@ -71,7 +75,7 @@ AddSyncWizard::AddSyncWizard(QWidget *parent,int tabNum) :
 
 
     QTabBar* tabBar;
-//    ui->tabWidget->tabBar()->hide();
+    ui->tabWidget->tabBar()->hide();
 
     ui->tabWidget->setCurrentIndex(5);
 
@@ -82,11 +86,20 @@ AddSyncWizard::AddSyncWizard(QWidget *parent,int tabNum) :
     this->tabActivated=false;
     this->tabTreeActivated=false;
 
+    this->moveWindowToCenter();
 }
 
 AddSyncWizard::~AddSyncWizard()
 {
     delete ui;
+}
+
+
+void AddSyncWizard::moveWindowToCenter()
+{
+    QRect frect = frameGeometry();
+    frect.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(frect.topLeft());
 }
 
 void AddSyncWizard::setTab(int tab,bool reAcrivate){
