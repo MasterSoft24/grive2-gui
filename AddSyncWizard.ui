@@ -257,6 +257,19 @@
           <string>Save settings</string>
          </property>
         </widget>
+        <widget class="QCheckBox" name="disableNotify">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>190</y>
+           <width>181</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Disable notifications</string>
+         </property>
+        </widget>
        </widget>
        <widget class="QWidget" name="tabWeb">
         <attribute name="title">

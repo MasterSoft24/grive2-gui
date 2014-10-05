@@ -63,6 +63,13 @@ void AddSyncWizard::tabSyncDataActivate(){
             ui->manualSync->setCheckState(Qt::Unchecked);
     }
 
+    if(sett->value("DisableNotifications").toString()=="true"){
+            ui->disableNotify->setCheckState(Qt::Checked);
+    }
+    else{
+            ui->disableNotify->setCheckState(Qt::Unchecked);
+    }
+
     this->tabActivated=true;
 }
 
@@ -277,6 +284,16 @@ void AddSyncWizard::saveSettButton(){
     else{
         conf+="false\n";
     }
+
+    conf+="DisableNotifications=";
+
+    if(ui->disableNotify->checkState()==Qt::Checked){
+        conf+="true\n";
+    }
+    else{
+        conf+="false\n";
+    }
+
 
     // store config to file
     QFile cfg(QDir::homePath()+"/.config/grive2gui.conf");
