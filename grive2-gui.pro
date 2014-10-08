@@ -34,4 +34,5 @@ RESOURCES += \
     res.qrc
 
 OTHER_FILES += \
-    COPYING
+    COPYING \
+    README.MD
