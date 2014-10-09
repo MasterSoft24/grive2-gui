@@ -41,8 +41,9 @@ int main(int argc, char *argv[])
     QString p=argv[1];
 
 
+
     if(p==""){
-        qDebug()<< "Grive2 GUI v0.1 (need grive2 v0.1)";
+        qDebug()<< "Grive2 GUI v0.1 (grive2 v0.1 required)";
         qDebug()<< "Use <account> or <filelist> command" ;
         qDebug()<< "USAGE: grive2-gui <command>";
         return 0;

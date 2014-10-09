@@ -25,6 +25,7 @@
 MQWebPage::MQWebPage(QWidget *parent) :
     QWebPage(parent)
 {
+
 }
 
 
@@ -37,4 +38,5 @@ bool MQWebPage::acceptNavigationRequest(QWebFrame *frame, const QNetworkRequest 
 
         }
 
+        return true;
 }

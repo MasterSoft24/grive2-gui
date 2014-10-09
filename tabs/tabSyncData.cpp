@@ -128,6 +128,8 @@ void AddSyncWizard::startAuth(){
 
 void AddSyncWizard::pageLoaded(bool r){
 
+
+
     QString currentUrl=ui->webView->url().toString();
 
     if(currentUrl.indexOf("https://accounts.google.com/o/oauth2/approval")==0){
@@ -227,7 +229,7 @@ void AddSyncWizard::pageLoaded(bool r){
         }
         else{
 
-            qDebug()<<"Google auth failure";
+           // qDebug()<<"Google auth failure";
             ui->authButton->setEnabled(true);
 
             showMessage("Create account failure",1);
