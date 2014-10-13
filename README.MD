@@ -14,7 +14,7 @@ grive2-gui uses qmake to build:
 3. cd to unpacking directory
 4. mkdir build
 5. cd build
-6. gmake ../
+6. qmake ../
 7. make
 
 Resulting binary file you can copy to destination folder e.g. /usr/bin
