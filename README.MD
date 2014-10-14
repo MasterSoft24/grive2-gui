@@ -31,7 +31,7 @@ Notice for Ubuntu users:
 This is known bugs. See 
 http://stoflru.org/out.php?link=https://bugreports.qt-project.org/browse/QTBUG-31762?page=com.atlassian.jira.plugin.system.issuetabpanels:all-tabpanel
 for details.
-This problem has been reproduced at least on Ubuntu 14.04
+This problem was been reproduced at least on Ubuntu 14.04
 
 USAGE:
 
