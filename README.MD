@@ -34,6 +34,7 @@ for details.
 This problem has been reproduced at least on Ubuntu 14.04
 
 USAGE:
+
 	grive2-gui account - show account preferences dialog
 	
 	grive2-gui filelist - show select files to sync dialog
@@ -45,6 +46,5 @@ Version History:
 
 	0.1:
 		:GUI preferences dialogs for tune 
-		
 		 sync parameters and list of files for sync.
 		
