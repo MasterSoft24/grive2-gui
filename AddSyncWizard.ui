@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>710</width>
-    <height>678</height>
+    <height>694</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -37,7 +37,7 @@
   <property name="title">
    <string>Grive2 control panel</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
@@ -55,7 +55,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>2</number>
        </property>
        <property name="usesScrollButtons">
         <bool>true</bool>
@@ -281,21 +281,23 @@
         <attribute name="title">
          <string>web</string>
         </attribute>
-        <widget class="QWebView" name="webView">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>671</width>
-           <height>611</height>
-          </rect>
-         </property>
-         <property name="url">
-          <url>
-           <string>about:blank</string>
-          </url>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QWebView" name="webView">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="url">
+            <url>
+             <string>about:blank</string>
+            </url>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
        <widget class="QWidget" name="questionTab">
         <attribute name="title">
@@ -359,7 +361,7 @@
            <x>10</x>
            <y>60</y>
            <width>661</width>
-           <height>521</height>
+           <height>461</height>
           </rect>
          </property>
          <property name="font">
@@ -391,7 +393,7 @@
          <property name="geometry">
           <rect>
            <x>560</x>
-           <y>591</y>
+           <y>530</y>
            <width>111</width>
            <height>31</height>
           </rect>
