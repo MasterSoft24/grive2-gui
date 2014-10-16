@@ -70,7 +70,7 @@ void AddSyncWizard::driveFileListReady(){
 
 
 
-    QRegExp rx("/Мой диск/1c");
+    QRegExp rx("");
 
     QRegExpValidator v(rx, 0);
 
@@ -154,7 +154,7 @@ void AddSyncWizard::driveFileListReady(){
                                 }
     }
 
-ui->treeFileList->itemAt(0,0)->setText(0,ui->labelAccountName->text());// set root element text to account email
+ui->treeFileList->itemAt(0,0)->setText(0,this->AccountEmail);// set root element text to account email
 
 connect(ui->treeFileList,SIGNAL(itemChanged(QTreeWidgetItem*, int)),this,SLOT( treeFileItemChanged(QTreeWidgetItem*, int))  );
 
@@ -188,7 +188,7 @@ QString AddSyncWizard::restoreFullPath(QTreeWidgetItem* item){
     QTreeWidgetItem*  p=0;
 
     while((p=item->parent())!=0){
-        if(p->text(0)==ui->labelAccountName->text()){
+        if(p->text(0)==this->AccountEmail){
             ret="/"+ret;
             break;
         }

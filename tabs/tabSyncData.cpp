@@ -216,16 +216,17 @@ void AddSyncWizard::pageLoaded(bool r){
                                 break;
                case 1:// yes
                     //setTab(4,true);
-                   QProcess prc;
-                   prc.start("./grive2-gui filelist");
-                   prc.waitForFinished(-1);
-                    showMessage("Google drive account was successfuly added and file list for sync created.");
+                    driveFileListActivate();
+//                   QProcess prc;
+//                   prc.start("./grive2-gui filelist");
+//                   prc.waitForFinished(-1);
+//                    showMessage("Google drive account was successfuly added and file list for sync created.");
 
                                 break;
 
                }
 
-                this->close();
+              //  this->close();
         }
         else{
 

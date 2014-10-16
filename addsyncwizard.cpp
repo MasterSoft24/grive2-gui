@@ -98,6 +98,7 @@ AddSyncWizard::~AddSyncWizard()
 void AddSyncWizard::moveWindowToCenter()
 {
     QRect frect = frameGeometry();
+    setFixedSize(frect.width(),QDesktopWidget().height()*0.85);
     frect.moveCenter(QDesktopWidget().availableGeometry().center());
     move(frect.topLeft());
 }
