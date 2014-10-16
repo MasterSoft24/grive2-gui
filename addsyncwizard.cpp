@@ -178,6 +178,7 @@ void AddSyncWizard::msgOKClickClose(){
 
     disconnect(this,SLOT(msgOKClickClose()));
     this->close();
+    QApplication::exit();
 
 }
 
