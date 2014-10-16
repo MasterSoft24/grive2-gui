@@ -114,6 +114,8 @@ void AddSyncWizard::startAuth(){
 
     // test <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     ui->webView->setPage(new MQWebPage());
+    ui->webView->page()->currentFrame()->setScrollBarPolicy(Qt::Vertical,Qt::ScrollBarAsNeeded);
+    ui->webView->page()->currentFrame()->setScrollBarPolicy(Qt::Horizontal,Qt::ScrollBarAsNeeded);
     connect( ui->webView->page(), SIGNAL(linkClicked(const QUrl&)),this, SLOT(pageChange(const QUrl&)));
 
 

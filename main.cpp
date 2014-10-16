@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 
     QString p=argv[1];
 
-p="filelist";
-p="account";
+//p="filelist";
+//p="account";
 
     if(p==""){
         qDebug()<< "Grive2 GUI v0.1 (grive2 v0.1 required)";
