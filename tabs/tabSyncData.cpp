@@ -20,6 +20,7 @@
 */
 
 #include "addsyncwizard.h"
+#include <QDebug>
 
 
 void AddSyncWizard::tabSyncDataActivate(){
@@ -40,6 +41,7 @@ void AddSyncWizard::tabSyncDataActivate(){
             ui->labelAccountName->setText("No account present");
             ui->saveSettButton->setVisible(false);
             ui->removeSettButton->setVisible(false);
+
      }
 
 
@@ -155,6 +157,9 @@ void AddSyncWizard::pageLoaded(bool r){
         postData += "&redirect_uri=urn:ietf:wg:oauth:2.0:oob";//
 
 
+        qDebug()<<"DEBUG: Send request=>"+postData;
+
+
         QUrl urlt("https://accounts.google.com/o/oauth2/token");
 
         QNetworkAccessManager* networkManager= new QNetworkAccessManager(0);
@@ -173,6 +178,8 @@ void AddSyncWizard::pageLoaded(bool r){
         loop.exec();
 
         QString content= reply->readAll();
+
+        qDebug()<<"DEBUG: Recived data =>"+content;
 
 
         QJsonDocument json = QJsonDocument::fromJson(content.toUtf8());
@@ -195,17 +202,28 @@ void AddSyncWizard::pageLoaded(bool r){
 
             // store config to file
             QFile cfg(QDir::homePath()+"/.config/grive2gui.conf");
-            cfg.open(QIODevice::WriteOnly | QIODevice::Text);
+            bool ores=cfg.open(QIODevice::WriteOnly | QIODevice::Text);
             QTextStream out(&cfg);
             out << conf;
             cfg.close();
 
+            if(! ores ){
+                qDebug()<<"DEBUG: Error opening file ~/.config/grive2gui.conf" ;
+            }
+
             // store grive key to file
             QFile key(ui->syncPath->text()+"/.grive");
-            key.open(QIODevice::WriteOnly | QIODevice::Text);
+            ores=key.open(QIODevice::WriteOnly | QIODevice::Text);
             QTextStream outk(&key);
             outk << "{\"refresh_token\" : \""+v+"\"}";
             key.close();
+
+            if(! ores ){
+                qDebug()<<"DEBUG: Error opening file .grive" ;
+            }
+            else{
+                qDebug()<<"DEBUG: saved token {\"refresh_token\" : \""+v+"\"}";
+            }
 
            int r= showQuestion("Are you want to set the list of files for sync?");
 
